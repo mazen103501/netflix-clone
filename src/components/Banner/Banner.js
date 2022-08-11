@@ -34,6 +34,7 @@ function Banner() {
             250
           )}
         </p>
+        <p>asdasd</p>
       </div>
     </div>
   );
