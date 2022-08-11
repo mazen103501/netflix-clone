@@ -30,7 +30,7 @@ function Banner() {
           is a test this is a test is a test this is a test this is a test this
           is a test this is a test is a test this is a test this is a test this
           is a test this is a test is a test this is a test this is a test this
-          is a test this is a testasd`,
+          is a test this is a test`,
             200
           )}
         </p>
