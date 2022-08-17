@@ -19,6 +19,11 @@ function Nav() {
         src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
         alt="netflix"
       />
+      <div className="nav-text">
+        <button>Home</button>
+        <button>TV Shows</button>
+        <button>Movies</button>
+      </div>
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
         alt="netflix"

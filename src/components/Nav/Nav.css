@@ -5,16 +5,19 @@
   position: fixed;
   /* background: #000; */
   z-index: 99999;
+  display: flex;
 }
 .nav-bar.active{
   background: #111;
 }
 .nav-bar img:first-of-type{
-  position: absolute;
+  /* position: absolute;
   top: 5px;
-  left: 10px;
+  left: 10px; */
   width: 130px;
-  
+  height: 40px;
+  margin-top: 5px;
+  margin-left: 10px;
 }
 .nav-bar img:last-of-type{
   position: absolute;
@@ -23,6 +26,15 @@
   top: 5px;
   right: 10px;
 }
-body{
-  height: 1500px;
-} 
+.nav-text{
+  margin-left: 40px;
+  margin-top: 13px;
+}
+.nav-text button{
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  margin-left: 20px;
+  cursor: pointer;
+}

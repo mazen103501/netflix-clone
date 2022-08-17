@@ -1,0 +1,38 @@
+.row{
+  padding: 10px;
+}
+.row h2{
+  color: white;
+}
+.slick-dots{
+  display: none !important;
+}
+.slick-arrow{
+  display: none !important;
+}
+.row img{
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.slick-list{
+  height: 300px;
+  padding: 20px 0 !important;
+}
+/* .row img{
+  width: 50px !important;
+} */
+.slick-slide{
+  height: 230px !important;
+  margin-left: 10px;
+  transition: 0.2s ease-in-out;
+}
+.slick-slide:hover{
+  transform: scale(1.07);
+}
+.slick-slide >div{
+  height: 100%;
+}
+.large{
+  height: 290px !important;
+}

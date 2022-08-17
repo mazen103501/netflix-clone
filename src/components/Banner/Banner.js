@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Banner.css";
 function Banner() {
+  const [movie, setMovie] = useState();
+  // console.log(movie);
+  async function getBanner() {
+    const req = await fetch(
+      `https://api.themoviedb.org/3/trending/all/week?api_key=9e8a34328909bb132160b8d69498be79&language=en-US`
+    );
+    const data = await req.json();
+    const movieArr = data.results;
+    setMovie(movieArr[Math.floor(Math.random() * movieArr.length - 1)]);
+  }
+  useEffect(() => {
+    getBanner();
+  }, []);
   function trimText(text, num) {
     return text?.length > num ? text.slice(0, num) + "..." : text;
   }
@@ -9,35 +22,35 @@ function Banner() {
       <div
         className="banner-background"
         style={{
-          backgroundImage:
-            "url(https://c4.wallpaperflare.com/wallpaper/212/657/279/the-avengers-avengers-endgame-ant-man-avengers-endgame-black-widow-hd-wallpaper-preview.jpg)",
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${movie?.backdrop_path})`,
           backgroundSize: "cover",
-          backgroundPosition: "center center",
+          backgroundPosition: "50% 50%",
+          backgroundRepeat: "no-repeat",
         }}
       ></div>
       <div className="banner-content">
-        <h1>Movie Name</h1>
+        <h1>{movie?.name || movie?.original_title || movie?.title}</h1>
+        <p title={movie?.overview}>{trimText(movie?.overview, 250)}</p>
         <div>
           <button>Play</button>
-          <button>My List</button>
+          <button>More Info</button>
         </div>
-        <p>
-          {trimText(
-            `this is a test this is a test this is a test this is a test this is a
-          test this is a test this is a test this is a test this is a test this
-          is a test this is a test is a test this is a test this is a test this
-          is a test this is a test is a test this is a test this is a test this
-          is a test this is a test is a test this is a test this is a test this
-          is a test this is a test is a test this is a test this is a test this
-          is a test this is a test is a test this is a test this is a test this
-          is a test this is a test`,
-            250
-          )}
-        </p>
-        <p>asdasd</p>
       </div>
+      <div className="shadow-effect"></div>
     </div>
   );
 }
 
 export default Banner;
+
+// const requests = {
+//   fetchTrending: `trending/all/week?apt_key=${API_KEY}&language=en-US`,
+//   fetchNetflixOriginals:
+//     "/discover/tviapi_key=S{API_KEY}&with_networks=213",
+//   fetchTopRated: `/sovie/top_ratedtapi_key=1${API_KEY}&language=en-US`,
+//   fetchActionMovies: `/discover/movie7apikey=S(API_KEY)With_genres=28`,
+//   fetchCooedyMovies: `Idisilover/movie7apiskey=${API_KEY}&with_genres=35`,
+//   fetchHorrodlovies: `/discover/sovietapi_key=${API_KEY}With_genres=27`,
+//   fetchRomanceMovies: `/discover/movle?api_key=${API_KEY}Sedith_genres=10749`,
+//   fetchDocusentaries: `/discover/oovietapi_key=${API_KEY}With_genres=99`,
+// };
