@@ -1,0 +1,61 @@
+.overlay{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.815);
+  position: fixed;
+  top: 0;
+  left: 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.overlay >div{
+  width: 50rem;
+  height: 30rem;
+  max-width: 100%;
+  background: #111;
+  color: white;
+  display: flex;
+}
+.overlay >div .image{
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.overlay >div .image img{
+  width: 200px;
+  
+}
+.overlay >div .data{
+  margin-left: 10px;
+  padding-right: 10px;
+  position: relative;
+}
+.overlay >div .data .header{
+  display: flex;
+  justify-content: space-between;
+  /* margin-left: 20px; */
+}
+.overlay >div .data >p{
+  margin-top: -15px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.overlay >div .data iframe{
+  width: 100%;
+  /* height: 100%; */
+}
+.overlay >div .data button{
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: #e50914;
+  border: none;
+  padding: 5px 25px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.overlay >div .data button:active{
+  background: rgb(151, 75, 75);
+}

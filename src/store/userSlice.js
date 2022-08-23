@@ -3,12 +3,19 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    value: 0,
+    user: null,
   },
-  reducers: {},
+  reducers: {
+    login: (state, action) => {
+      state.user = action.payload;
+    },
+    logout: (state) => {
+      state.user = null;
+    },
+  },
 });
 
 // Action creators are generated for each case reducer function
-export const {} = userSlice.actions;
+export const { login, logout } = userSlice.actions;
 
 export default userSlice.reducer;

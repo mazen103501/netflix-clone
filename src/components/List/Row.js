@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "./Row.css";
+import Image from "./Image";
 
-function Row({ title, url, Large, margin }) {
+function Row({ title, url, Large, margin, click }) {
   const [movies, setMovies] = useState();
   const settings = {
     dots: true,
@@ -11,10 +12,11 @@ function Row({ title, url, Large, margin }) {
     slidesToShow: Large ? 7 : 5,
     slidesToScroll: 4,
   };
+
   async function fetchMovies(url) {
     const req = await fetch("https://api.themoviedb.org/3" + url);
     const data = await req.json();
-    console.log(title, data);
+    // console.log(title, data.results);
     setMovies(data.results);
   }
   useEffect(() => {
@@ -35,6 +37,7 @@ function Row({ title, url, Large, margin }) {
                   Large ? e?.poster_path : e?.backdrop_path
                 }`}
                 alt={e?.original_title}
+                onClick={click.bind(null, e, e?.id, movies)}
               />
             ))}
         </Slider>
@@ -44,3 +47,15 @@ function Row({ title, url, Large, margin }) {
 }
 
 export default Row;
+
+{
+  /* <Image
+                key={e?.id}
+                id={e?.id}
+                className={Large ? "large" : "small"}
+                src={`https://image.tmdb.org/t/p/original${
+                  Large ? e?.poster_path : e?.backdrop_path
+                }`}
+                alt={e?.original_title}
+              /> */
+}

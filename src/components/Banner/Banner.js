@@ -2,14 +2,18 @@ import React, { useEffect, useState } from "react";
 import "./Banner.css";
 function Banner() {
   const [movie, setMovie] = useState();
-  // console.log(movie);
+  console.log(movie);
   async function getBanner() {
     const req = await fetch(
       `https://api.themoviedb.org/3/trending/all/week?api_key=9e8a34328909bb132160b8d69498be79&language=en-US`
     );
     const data = await req.json();
     const movieArr = data.results;
-    setMovie(movieArr[Math.floor(Math.random() * movieArr.length - 1)]);
+    setMovie(
+      movieArr.filter((movie) => movie.backdrop_path && movie.overview)[
+        Math.floor(Math.random() * movieArr.length - 1)
+      ]
+    );
   }
   useEffect(() => {
     getBanner();
