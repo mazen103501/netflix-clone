@@ -12,7 +12,7 @@ function Overlay({ src, title, overview, vote, youtube, close }) {
         </div>
         <div className="data">
           <div className="header">
-            <h2>{title}</h2>
+            <h3>{title}</h3>
             <p>{vote}/10</p>
           </div>
           <p title={overview}>{trimText(overview, 150)}</p>

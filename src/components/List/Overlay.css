@@ -35,8 +35,11 @@
   justify-content: space-between;
   /* margin-left: 20px; */
 }
+.overlay >div .data .header h2{
+  
+} 
 .overlay >div .data >p{
-  margin-top: -15px;
+  margin-top: 10px;
   font-size: 0.9rem;
   color: #ccc;
 }

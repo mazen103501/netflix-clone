@@ -7,30 +7,30 @@ import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase/firebase";
 import { login } from "./store/userSlice";
+import Profile from "./components/Profile/Profile";
 function App() {
   const user = useSelector((state) => state.user.user);
-  // console.log(user);
+  console.log(user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
-        dispatch(login(user.accessToken));
+        // console.log(user);
+        dispatch(login({ email: user.email, token: user.accessToken }));
+        navigate("/", { replace: false });
+      } else {
+        navigate("/login", { replace: true });
       }
     });
-    if (user) {
-      navigate("/", { replace: false });
-    } else {
-      navigate("/login", { replace: true });
-    }
-  }, [user]);
+  }, []);
 
   return (
     <div className="App">
       <Routes>
         {user && <Route path="/" element={<Home />} />}
+        {user && <Route path="/profile" element={<Profile />} />}
         {!user && <Route path="login" element={<Login />} />}
       </Routes>
     </div>

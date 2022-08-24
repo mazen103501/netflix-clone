@@ -1,0 +1,84 @@
+.profile{
+  height: 100vh;
+  color: white;
+}
+.profile .info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.profile .info .center-div{
+  margin-top: 100px;
+  width: 35rem;
+  max-width: 100%;
+}
+.profile .info .center-div h1{
+  width: 100%;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.199);
+}
+.profile .info .data .image {
+  width: 70px;
+  margin-right: 20px;
+}
+.profile .info .data .image img{
+  width: 100%;
+}
+.profile .info .center-div .data{
+  display: flex;
+  margin-top: 15px;
+}
+.profile .info .center-div .data .email-plans{
+  flex: 1;
+}
+.profile .info .center-div .data .email-plans .email{
+  background: gray;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.profile .info .center-div .data .email-plans .plans h4{
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.199);
+  margin-bottom: 5px;
+}
+.profile .info .center-div .data .email-plans .plans >p {
+  font-size: 0.9rem;
+  color: rgb(179, 179, 179);
+  margin-bottom: 10px;
+}
+.profile .info .center-div .data .email-plans .plans .all-plans{
+  padding: 15px;
+}
+.profile .info .center-div .data .email-plans .plans .all-plans .single-plan{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.plan-type p:first-of-type{
+  /* font-size: 0.9rem; */
+}
+.plan-type p:last-of-type{
+  font-size: 0.6rem;
+}
+.single-plan button{
+  background: #E50914;
+  color: white;
+  border: none;
+  padding: 5px 25px;
+}
+.single-plan button:active{
+  background: rgb(231, 69, 69);
+}
+.single-plan:first-of-type button{
+  background: gray;
+}
+.signout{
+  width: 100%;
+  background: #E50914;
+  color: white;
+  padding: 10px;
+  border: none;
+}
+.signout:active{
+  background: rgb(231, 69, 69);
+}

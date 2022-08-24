@@ -17,6 +17,7 @@ function Banner() {
   }
   useEffect(() => {
     getBanner();
+    console.log("heheh");
   }, []);
   function trimText(text, num) {
     return text?.length > num ? text.slice(0, num) + "..." : text;

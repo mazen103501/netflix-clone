@@ -44,25 +44,43 @@
   background: rgb(231, 69, 69);
 }
 .login-page .container .midpage{
-  flex-grow: 1;
+  width: 400px;
+  max-width: 100%;
   margin: 100px auto;
   color: white;
 }
-.login-page .container .midpage .getstart > div input{
+.login-page .container .firstpagecont{
+  margin: 100px auto;
+  color: white;
+  text-align: center;
+}
+.login-page .container .firstpagecont h1,.login-page .container .firstpagecont p,.login-page .container .firstpagecont h2{
+  margin: 20px 0;
+}
+.login-page .container .firstpagecont .getstart > div input{
   padding: 15px;
   width: 70%;
 }
-.login-page .container .midpage .getstart > div button{
+.login-page .container .firstpagecont .getstart > div button{
   width: 20%;
   padding: 15px;
   color: white;
   background: #E50914;
   border: none;
 }
+@media (max-width:480px){
+  .login-page .container .firstpagecont .getstart > div input{
+    width: 50%;
+  }
+  .login-page .container .firstpagecont .getstart > div button{
+    width: 30%;
+  }
+}
 .login-page .container .midpage .login-form{
   background: rgba(0,0,0,.75);
   padding: 50px;
-  min-width: 300px;
+  width: 100%;
+  max-width: 400px;
 }
 .login-page .container .midpage .login-form form{
   display: flex;
@@ -91,6 +109,7 @@
   color: white;
   background: #E50914;
   font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 .login-page .container .midpage .login-form form p{
   color: gray;

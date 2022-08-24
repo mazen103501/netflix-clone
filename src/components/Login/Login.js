@@ -23,7 +23,7 @@ function Login() {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        dispatch(login(user.accessToken));
+        dispatch(login({ email: user.email, token: user.accessToken }));
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -38,7 +38,7 @@ function Login() {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        dispatch(login(user.accessToken));
+        dispatch(login({ email: user.email, token: user.accessToken }));
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -57,8 +57,9 @@ function Login() {
           />
           {!signin && <button onClick={() => setSignin(true)}>Sign In</button>}
         </nav>
-        <div className="midpage">
-          {!signin && (
+
+        {!signin && (
+          <div className="firstpagecont">
             <div className="getstart">
               <h1>Unlimited movies, TV shows, and more.</h1>
               <h2>Watch anywhere. Cancel anytime.</h2>
@@ -71,8 +72,10 @@ function Login() {
                 <button onClick={() => setSignin(true)}>Get Stated</button>
               </div>
             </div>
-          )}
-          {signin && (
+          </div>
+        )}
+        {signin && (
+          <div className="midpage">
             <div className="login-form">
               {!register && (
                 <>
@@ -121,8 +124,8 @@ function Login() {
                 </>
               )}
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
