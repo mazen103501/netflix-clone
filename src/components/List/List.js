@@ -17,7 +17,7 @@ function List() {
   async function clicking(e, id, movies) {
     console.log(id);
     const req = await fetch(
-      `http://api.themoviedb.org/3/movie/${id}/videos?api_key=9e8a34328909bb132160b8d69498be79`
+      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=9e8a34328909bb132160b8d69498be79`
     );
     const data = await req.json();
     const obj = movies.filter((movie) => movie.id === id)[0];

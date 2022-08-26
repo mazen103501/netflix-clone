@@ -69,7 +69,7 @@
 .single-plan button:active{
   background: rgb(231, 69, 69);
 }
-.single-plan:first-of-type button{
+button.package{
   background: gray;
 }
 .signout{

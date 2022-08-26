@@ -1,6 +1,9 @@
 .row{
   padding: 10px;
 }
+.row:first-of-type > div{
+  height: 400px;
+}
 .row h2{
   color: white;
 }
@@ -16,14 +19,14 @@
 }
 
 .slick-list{
-  height: 300px;
+  /* height: 300px; */
   padding: 20px 0 !important;
 }
 /* .row img{
   width: 50px !important;
 } */
 .slick-slide{
-  height: 230px !important;
+  /* height: 230px !important; */
   margin-left: 10px;
   transition: 0.2s ease-in-out;
 }

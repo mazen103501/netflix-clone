@@ -43,7 +43,9 @@ function Profile() {
                       <p>Netflix Basic</p>
                       <p>480p</p>
                     </div>
-                    <button className="subscribe">Current Package</button>
+                    <button className="subscribe package">
+                      Current Package
+                    </button>
                   </div>
                   <div className="single-plan">
                     <div className="plan-type">
