@@ -1,3 +1,8 @@
+# I used in this clone : Redux / FireStore Database / Firebase Auth / Stripe payment 
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
