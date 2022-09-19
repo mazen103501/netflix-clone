@@ -4,7 +4,7 @@ import "./Profile.css";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
 import { useDispatch, useSelector } from "react-redux";
-import { logout, makeItAllowed } from "../../store/userSlice";
+import { logout, makeItAllowed, makeItNotAllowed } from "../../store/userSlice";
 import { db } from "../../firebase/firebase";
 import { collection, getDocs, query } from "firebase/firestore";
 import Plans from "./Plan";
@@ -22,6 +22,7 @@ function Profile() {
       .then(() => {
         // Sign-out successful.
         dispatch(logout());
+        dispatch(makeItNotAllowed());
       })
       .catch((error) => {
         // An error happened.

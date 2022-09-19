@@ -30,20 +30,25 @@ function App() {
       navigate("/", { replace: false });
     }
   }, [allowed]);
+  let renderHome;
+  if (user && allowed) {
+    renderHome = <Home />;
+  } else if (user) {
+    renderHome = (
+      <div
+        style={{ background: "white", fontSize: "50px", cursor: "pointer" }}
+        onClick={() => navigate("/profile", { replace: false })}
+      >
+        Please subscribe in any package first Click on me to redirect to your
+        profile
+      </div>
+    );
+  } else {
+  }
   return (
     <div className="App">
       <Routes>
-        {allowed && <Route path="/" element={<Home />} />}
-        {user && (
-          <Route
-            path="/"
-            element={
-              <div style={{ background: "white", fontSize: "50px" }}>
-                Please subscribe in any package first
-              </div>
-            }
-          />
-        )}
+        <Route path="/" element={renderHome} />
         {user && <Route path="/profile" element={<Profile />} />}
         {!user && <Route path="login" element={<Login />} />}
       </Routes>

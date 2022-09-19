@@ -16,10 +16,14 @@ export const userSlice = createSlice({
     makeItAllowed: (state) => {
       state.allowed = true;
     },
+    makeItNotAllowed: (state) => {
+      state.allowed = false;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { login, logout, makeItAllowed } = userSlice.actions;
+export const { login, logout, makeItAllowed, makeItNotAllowed } =
+  userSlice.actions;
 
 export default userSlice.reducer;
