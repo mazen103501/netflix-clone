@@ -3,10 +3,11 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../../firebase/firebase";
+import { auth, db } from "../../firebase/firebase";
 import "./Login.css";
 import { useDispatch } from "react-redux";
 import { login } from "../../store/userSlice";
+import { addDoc, collection } from "firebase/firestore";
 function Login() {
   const [signin, setSignin] = useState(false);
   const [register, setRegister] = useState(false);
@@ -16,6 +17,12 @@ function Login() {
   const [registerPassword, setRegisterPassword] = useState("");
   const dispatch = useDispatch();
   // console.log(loginEmail, loginPassword, registerEmail, registerPassword);
+  async function saveInDB(email) {
+    addDoc(collection(db, "package"), {
+      email,
+      package: "none",
+    });
+  }
   async function registerUser(e) {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
@@ -23,7 +30,8 @@ function Login() {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        dispatch(login({ email: user.email, token: user.accessToken }));
+        dispatch(login(user));
+        saveInDB(registerEmail);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -38,7 +46,7 @@ function Login() {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        dispatch(login({ email: user.email, token: user.accessToken }));
+        dispatch(login(user));
       })
       .catch((error) => {
         const errorCode = error.code;

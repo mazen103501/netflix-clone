@@ -25,6 +25,7 @@
   width: 40px;
   top: 5px;
   right: 10px;
+  cursor: pointer;
 }
 .nav-text{
   margin-left: 40px;

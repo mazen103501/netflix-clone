@@ -10,26 +10,40 @@ import { login } from "./store/userSlice";
 import Profile from "./components/Profile/Profile";
 function App() {
   const user = useSelector((state) => state.user.user);
-  console.log(user);
+  const allowed = useSelector((state) => state.user.allowed);
+  console.log(allowed);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         // console.log(user);
-        dispatch(login({ email: user.email, token: user.accessToken }));
-        navigate("/", { replace: false });
+        dispatch(login(user));
+        navigate("/profile", { replace: false });
       } else {
         navigate("/login", { replace: true });
       }
     });
   }, []);
-
+  useEffect(() => {
+    if (allowed) {
+      navigate("/", { replace: false });
+    }
+  }, [allowed]);
   return (
     <div className="App">
       <Routes>
-        {user && <Route path="/" element={<Home />} />}
+        {allowed && <Route path="/" element={<Home />} />}
+        {user && (
+          <Route
+            path="/"
+            element={
+              <div style={{ background: "white", fontSize: "50px" }}>
+                Please subscribe in any package first
+              </div>
+            }
+          />
+        )}
         {user && <Route path="/profile" element={<Profile />} />}
         {!user && <Route path="login" element={<Login />} />}
       </Routes>
