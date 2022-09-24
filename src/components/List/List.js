@@ -4,11 +4,11 @@ import Row from "./Row";
 import Overlay from "./Overlay";
 function List() {
   const [overlay, setOverlay] = useState({
-    title: undefined,
-    overview: undefined,
-    image: undefined,
-    vote: undefined,
-    youtube: undefined,
+    title: null,
+    overview: null,
+    image: null,
+    vote: null,
+    youtube: null,
   });
   const apiKey = "9e8a34328909bb132160b8d69498be79";
   function closeOverlay() {

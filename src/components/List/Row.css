@@ -1,5 +1,9 @@
 .row{
   padding: 10px;
+
+}
+.row>div{
+  min-height: 350px;
 }
 .row:first-of-type > div{
   height: 400px;
