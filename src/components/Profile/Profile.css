@@ -29,10 +29,13 @@
 }
 .profile .info .center-div .data{
   display: flex;
+  flex-wrap: wrap;
   margin-top: 15px;
 }
 .profile .info .center-div .data .email-plans{
   flex: 1;
+  /* min-width: 100%; */
+  width: 100%;
 }
 .profile .info .center-div .data .email-plans .email{
   background: gray;
@@ -86,4 +89,11 @@ button.package{
 }
 .signout:active{
   background: rgb(231, 69, 69);
+}
+
+@media (max-width:400px){
+  .profile .info .center-div .data{
+    flex-direction: column;
+    align-items: center;
+  }
 }

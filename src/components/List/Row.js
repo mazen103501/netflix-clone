@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "./Row.css";
-import Image from "./Image";
 
 function Row({ title, url, Large, margin, click }) {
+  let s = sizeHandler();
   const [movies, setMovies] = useState();
+  const [screenSize, setScreenSize] = useState(s);
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: Large ? 7 : 5,
+    slidesToShow: screenSize,
     slidesToScroll: 4,
   };
 
@@ -19,13 +20,31 @@ function Row({ title, url, Large, margin, click }) {
     // console.log(title, data.results);
     setMovies(data.results);
   }
+  function sizeHandler() {
+    let s;
+    if (window.innerWidth > 900) {
+      s = Large ? 7 : 5;
+      // setScreenSize(s);
+    } else if (window.innerWidth < 900 && window.innerWidth > 650) {
+      s = Large ? 5 : 3;
+      // setScreenSize(s);
+    } else {
+      s = 2;
+      // setScreenSize(2);
+    }
+    return s;
+  }
+  function changeSlider() {
+    setScreenSize(sizeHandler());
+  }
   useEffect(() => {
     fetchMovies(url);
+    window.addEventListener("resize", changeSlider);
   }, []);
   return (
     <div className="row" style={{ marginTop: Large || margin ? "" : "-130px" }}>
       <h2>{title}</h2>
-      <div>
+      <div className={`${Large ? "large" : ""}`}>
         <Slider {...settings}>
           {movies
             ?.filter((e) => e.backdrop_path)

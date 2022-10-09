@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./Banner.css";
 function Banner() {
+  let te = windowSize();
   const [movie, setMovie] = useState();
+  const [showBanarText, setShowBanarText] = useState(te);
   // console.log(movie);
   async function getBanner() {
     const req = await fetch(
@@ -15,9 +17,23 @@ function Banner() {
       ]
     );
   }
+  function windowSize() {
+    if (window.innerWidth < 560) {
+      return false;
+    }
+    return true;
+  }
+  function textHandler() {
+    let size = windowSize();
+    if (size) {
+      setShowBanarText(true);
+    } else {
+      setShowBanarText(false);
+    }
+  }
   useEffect(() => {
     getBanner();
-    // console.log("heheh");
+    window.addEventListener("resize", textHandler);
   }, []);
   function trimText(text, num) {
     return text?.length > num ? text.slice(0, num) + "..." : text;
@@ -35,7 +51,9 @@ function Banner() {
       ></div>
       <div className="banner-content">
         <h1>{movie?.name || movie?.original_title || movie?.title}</h1>
-        <p title={movie?.overview}>{trimText(movie?.overview, 250)}</p>
+        {showBanarText && (
+          <p title={movie?.overview}>{trimText(movie?.overview, 250)}</p>
+        )}
         <div>
           <button>Play</button>
           <button>More Info</button>

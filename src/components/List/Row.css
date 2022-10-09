@@ -26,6 +26,27 @@
   /* height: 300px; */
   padding: 20px 0 !important;
 }
+.slick-track{
+  max-height: 294px !important;
+  overflow: hidden;
+}
+
+.large .slick-track{
+  max-height: 300px !important;
+}
+@media (max-width:672px){
+  .slick-track{
+    max-height: 123px !important;
+  }
+  .large .slick-track{
+    max-height: 290px !important;
+  }
+}
+@media (max-width:446px){
+  .slick-track{
+    max-height: 85px !important;
+  }
+}
 /* .row img{
   width: 50px !important;
 } */

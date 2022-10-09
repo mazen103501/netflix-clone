@@ -65,20 +65,7 @@ function Profile() {
     console.log(data, "asdasdasdasd");
     setCustomerPlan(data);
   }
-  useEffect(() => {
-    if (customerPlan.length >= 1) {
-      dispatch(makeItAllowed());
-    }
-  }, [customerPlan]);
-  useEffect(() => {
-    if (plans.length === 3) {
-      loaderHandler(false);
-    }
-  }, [plans]);
-  useEffect(() => {
-    getPlans();
-    getCurrentPlan();
-  }, []);
+
   function checkSubbed(name) {
     const plans = customerPlan.map((e) => e.type);
     let result;
@@ -97,6 +84,21 @@ function Profile() {
     const year = new Date(convert).getUTCFullYear();
     return `${day}/${month}/${year}`;
   }
+
+  useEffect(() => {
+    if (customerPlan.length >= 1) {
+      dispatch(makeItAllowed());
+    }
+  }, [customerPlan]);
+  useEffect(() => {
+    if (plans.length === 3) {
+      loaderHandler(false);
+    }
+  }, [plans]);
+  useEffect(() => {
+    getPlans();
+    getCurrentPlan();
+  }, []);
   return (
     <div className="profile">
       <Nav hide={true} />
